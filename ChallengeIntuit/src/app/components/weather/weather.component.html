@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-center my-4">Buscar clima de ciudades:</h3>
+            <form [formGroup]="form" (ngSubmit)="getWeatherData(form.value)">
+                <div class="form-group">
+                    <input type="text" 
+                            class="form-control" 
+                            id="weatherLocation" 
+                            aria-describedby="weatherLocation" 
+                            placeholder="Please input a location"
+                            formControlName="location">
+                </div>
+                <div class="text-center">
+                    <button type="submit" 
+                            class="btn btn-success btn-md">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-center my-4">Clima en:</h3>
+            <p class="text-center">{{weatherData?.location.name}} </p>
+             <p class="text-center">Clima: {{weatherData?.current.condition.text}}</p>
+            <p class="text-center">Temperatura actual: {{weatherData?.current.temp_c}} °C</p>
+            <p class="text-center">Sensación termica: {{weatherData?.current.feelslike_c}} °C</p>
+            <p class="text-center">Humedad: {{weatherData?.current.humidity}} </p>
+        </div>
+    </div>
+</div>
